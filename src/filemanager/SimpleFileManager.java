@@ -47,19 +47,13 @@ public class SimpleFileManager implements FileManagerStrat{
         this.data = data;
     }
     
-    /**
-     * write to file via FileWriter
-     * @param toWrite string to write to file
-     */
+    
     @Override
     public void writeAppend(String toWrite, int mode){
         fw.writeAppend(toWrite, data);
     }
     
-    /**
-     * write to file via FileWriter
-     * @param toWrite string to write to file
-     */
+    
     @Override
     public void writeNoAppend(String toWrite, int mode){
         fw.writeNoAppend(toWrite, data);
