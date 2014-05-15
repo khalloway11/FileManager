@@ -12,12 +12,12 @@ import java.io.*;
  *
  * @author Keiji
  */
-public class FileManager {
+public class SimpleFileManager implements FileManagerStrat{
     private FileReaderStrat fr;
     private FileWriterStrat fw;
     private File data;
     
-    public FileManager(String filePath, FileReaderStrat fr, FileWriterStrat fw){
+    public SimpleFileManager(String filePath, FileReaderStrat fr, FileWriterStrat fw){
         data = new File(filePath);
         this.fw = fw;
         this.fr = fr;
@@ -51,7 +51,8 @@ public class FileManager {
      * write to file via FileWriter
      * @param toWrite string to write to file
      */
-    public void writeAppend(String toWrite){
+    @Override
+    public void writeAppend(String toWrite, int mode){
         fw.writeAppend(toWrite, data);
     }
     
@@ -59,21 +60,25 @@ public class FileManager {
      * write to file via FileWriter
      * @param toWrite string to write to file
      */
-    public void writeNoAppend(String toWrite){
+    @Override
+    public void writeNoAppend(String toWrite, int mode){
         fw.writeNoAppend(toWrite, data);
     }
     
     /**
      * read a specific line from the file
+     * @param line the line to be read, starting with 1
      * @return the specified line as a String
      */
-    public String readLine(int line){
+    @Override
+    public String readLine(int line, int mode){
         return fr.readLine(data, line);
     }
     
     /**
      * print the contents of the file
      */
+    @Override
     public void readAll(){
         fr.readAll(data);
     }

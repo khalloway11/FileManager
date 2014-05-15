@@ -20,13 +20,13 @@ public class FileManagerStartup {
     public static void main(String[] args) {
         // TODO code application logic here
         String fileName = ("src" + File.separatorChar + "test.txt");
-        FileManager fmPlain = new FileManager(fileName, new PlainTextReader(), new PlainTextWriter());
-        FileManager fmCSV = new FileManager(fileName, new CSVFileReader(), new CSVFileWriter());
+        SimpleFileManager fmPlain = new SimpleFileManager(fileName, new PlainTextReader(), new PlainTextWriter());
+        SimpleFileManager fmCSV = new SimpleFileManager(fileName, new CSVFileReader(), new CSVFileWriter());
         
         fmPlain.readAll();
         fmCSV.readAll();
-        System.out.println(fmCSV.readLine(4));
-        System.out.println(fmPlain.readLine(2));
+        //System.out.println(fmCSV.readLine(4));
+        //System.out.println(fmPlain.readLine(2));
     }
     
 }
